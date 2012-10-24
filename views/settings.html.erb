@@ -1,0 +1,45 @@
+<section id='settings'>
+	<form action="/settings" class='<%= 'errors' unless (@user.errors.empty? || @account.errors.empty?) %>' method="post" accept-charset="utf-8">
+			<p>
+				<label for="name">
+					your real, actual, personal name
+					<% @user.errors[:name].each do |error| %>
+						<span class='error'><%= error.to_s %></span>
+					<% end %>
+				</label>
+				<input type='text' name="user[name]" value="<%= @user.name %>" placeholder='Warren P. Beatty'>
+			</p>
+			<p>
+				<label for="email">
+					your email
+					<% @user.errors[:email].each do |error| %>
+						<span class='error'><%= error.to_s %></span>
+					<% end %>				
+				</label>
+				<input type="email" name="user[email]" value="<%= @user.email %>" placeholder='warren@rexmanning.com'>
+			</p>
+			<p>
+				<label for="password">
+					change your password, or leave blank to keep it
+					<% @user.errors[:password].each do |error| %>
+						<span class='error'><%= error.to_s %></span>
+					<% end %>
+				</label>
+				<input type="password" name="user[password]" value="<%= @user.password %>" placeholder='••••••••••'>
+			</p>
+		
+		<p><input type="submit" value="save my settings"></p>
+	</form>
+	<div id="info">
+		<p>
+			<strong>your current plan:</strong> 
+		</p>
+		<p>
+			<strong>the cost:</strong> /month
+		</p>
+		<hr/>
+		<p>
+			<strong>here since:</strong> <%= @user.created_at.strftime("%b %d, %Y") %>
+		</p>
+	</div>
+</section>

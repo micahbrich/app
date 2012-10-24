@@ -1,0 +1,33 @@
+<section id='upgrade'>
+	<form action="/upgrade/<%= params[:plan] %>" class='<%= 'errors' unless (@user.errors.empty? || @account.errors.empty?) %>' method="post" accept-charset="utf-8">
+			<p>
+				<label for="name">
+					your real, actual, personal name
+					<% @user.errors[:name].each do |error| %>
+						<span class='error'><%= error.to_s %></span>
+					<% end %>
+				</label>
+				<input type='text' name="user[name]" value="<%= @user.name %>" placeholder='Warren P. Beatty'>
+			</p>
+			<p>
+				<label for="email">
+					your email
+					<% @user.errors[:email].each do |error| %>
+						<span class='error'><%= error.to_s %></span>
+					<% end %>				
+				</label>
+				<input type="email" name="user[email]" value="<%= @user.email %>" placeholder='warren@rexmanning.com'>
+			</p>
+			<p>
+				<label for="password">
+					pick a password
+					<% @user.errors[:password].each do |error| %>
+						<span class='error'><%= error.to_s %></span>
+					<% end %>
+				</label>
+				<input type="password" name="user[password]" value="<%= @user.password %>" placeholder='••••••••••'>
+			</p>
+		
+		<p><input type="submit" value="Continue to Billing &rarr;"></p>
+	</form>
+</section>

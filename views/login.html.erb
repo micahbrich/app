@@ -1,0 +1,18 @@
+<section id='login'>
+	<p class='error'>
+		<%= warden.message %>
+	</p>
+	<form action="/login" method="post" accept-charset="utf-8">
+			<p>
+				<label for="email"><span></span></label>
+				<input type='email' name="email" value="<%= params[:email] %>" placeholder="warren@rexmanning.com" >
+			</p>
+			<p>
+				<label for="password"><span></span></label>
+				<input type='password' name="password" value="<%= params[:password] %>" placeholder="•••••••••" >
+			</p>
+			<p><input type="submit" class='full-width' value="log in"></p>
+			
+			
+	</form>
+</section>

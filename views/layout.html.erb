@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>app title</title>
+	<link rel="stylesheet" href="/stylesheets/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+</head>
+<body>
+	
+	<header>
+		<h1 class='logo'><a href="/">app</a></h1>
+		<nav>
+			<% if logged_in? %>
+				<a href="/settings">My Settings</a>			
+				<a href="/pricing">Upgrade</a>			
+				<a href="/logout">Log Out</a>
+			<% else %>
+				<a href="/about">About</a>
+				<a href="/pricing">Pricing &amp; Signup</a>			
+				<a href="/login">Login</a>
+			<% end %>
+		</nav>
+	</header>
+	
+	<%= display_flash %>
+	
+	<%= yield %>
+	
+	<footer>
+		
+		<p><span class='links'>
+		 <a href="/terms">Terms of Service</a></span> <span class="copyright">Copyright <%= Time.now.year %> <a href="http://weareagoodcompany.com" class='a-good-company'>A Good Company</a></span></p>
+	</footer>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script src="/javascripts/app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
